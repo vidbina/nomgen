@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import itertools
+import random
 
 def get(filename):
   return set(line.strip() for line in open(filename))
@@ -48,6 +49,7 @@ out_file = 'gen.txt'
 
 filters = [filter_similar_adjacent_terminals]
 options = list(map(lambda x: join(x), eliminate(combine(get(in_file)), filters)))
+random.shuffle(options)
 
 with open(out_file, 'w') as fp:
-  print("\n".join(options),  file=fp) #list(map(lambda x: , options)))
+  print("\n".join(options),  file=fp)
