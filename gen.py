@@ -31,13 +31,11 @@ def filter_invalid_phrase(phrase_combination):
   return True
 
 def filter_similar_adjacent_terminals(phrase_combination):
-  print("here")
   cursor = iter(phrase_combination)
   a = next(cursor)
   while True:
     try:
       b = next(cursor)
-      print("{} and {} for {}".format(a, b, phrase_combination))
       if b[0] == a[-1]:
         return False
       a = b
